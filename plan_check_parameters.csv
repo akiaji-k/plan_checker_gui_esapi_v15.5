@@ -1,0 +1,30 @@
+Millennium 80, Millennium 80 
+Millennium 120, Millennium 120 
+Varian High Definition 120, Varian High Definition 120
+MlcJawToleranceDistance, 2.0
+PhotonCalcAlgorithmConv, AAA_CAP155MR1
+PhotonCalcAlgorithmImrtSrt, AcurosXB_RBD_15511
+ElectronCalcAlgorithm, EMC_CAP155MR1
+PhotonCalcGridConv, 0.25 
+PhotonCalcGridImrtSrt, 0.2
+PhotonCalcGridImrtSrt, 0.125
+ElectronCalcGrid, 0.25 
+DoseRate, CL2100C1, 4X, 250
+DoseRate, CL2100C1, 10X, 400 
+DoseRate, CL2100C1, 4E, 400 
+DoseRate, CL2100C1, 6E, 400 
+DoseRate, CL2100C1, 9E, 400 
+DoseRate, CL2100C1, 12E, 400 
+DoseRate, CL2100C1, 15E, 400 
+DoseRate, Clinac iX, 6X, 600 
+DoseRate, Clinac iX, 10X, 600 
+DoseRate, TrueBeamSTx, 4X, 250 
+DoseRate, TrueBeamSTx, 6X, 600 
+DoseRate, TrueBeamSTx, 10X, 600 
+DoseRate, TrueBeamSTx, 6X-FFF, 1400 
+DoseRate, TrueBeamSTx, 10X-FFF, 2400 
+LinacCouchPair, Clinac iX, Exact Couch with Flat panel
+LinacCouchPair, TrueBeamSTx, Exact IGRT Couch, thin 
+LinacCouchPair, TrueBeamSTx, Exact IGRT Couch, medium 
+LinacCouchPair, TrueBeamSTx, Exact IGRT Couch, thick
+
