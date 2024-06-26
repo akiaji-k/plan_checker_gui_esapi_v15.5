@@ -744,12 +744,17 @@ namespace plan_checker_gui_esapi_v15_5
             public Error IsNormalizationMethodAppropriate(in ScriptContext context)
             {
                 bool is_error = false;
-                string norm_ok = string.Format("\t{0}\n", context.ExternalPlanSetup.PlanNormalizationMethod);
+                string norm = context.ExternalPlanSetup.PlanNormalizationMethod;
+                string norm_ok = string.Format("\t{0}\n", norm);
 
-                if (context.ExternalPlanSetup.PlanNormalizationMethod == "No plan normalization")
+                //                if (context.ExternalPlanSetup.PlanNormalizationMethod== "No plan normalization")
+                if ((norm.Contains("100% in Reference Point") == false)
+                        && (norm.Contains("100% in Primary Reference Point") == false)
+                        && (norm.Contains("100% in Isocenter of Field") == false)
+                    )
                 {
                     is_error = true;
-                    norm_ok = "・ Normalizationが適用されていません。\n" + norm_ok;
+                    norm_ok = "・ Normalizationが不適切な可能性があります。\n" + norm_ok;
                 }
                 // for IMRT is not implemented
                 else if (IrradiationTechnique == Technique.IMRT)
