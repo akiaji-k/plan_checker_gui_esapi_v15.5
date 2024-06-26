@@ -746,8 +746,13 @@ namespace plan_checker_gui_esapi_v15_5
                 bool is_error = false;
                 string norm_ok = string.Format("\t{0}\n", context.ExternalPlanSetup.PlanNormalizationMethod);
 
+                if (context.ExternalPlanSetup.PlanNormalizationMethod == "No plan normalization")
+                {
+                    is_error = true;
+                    norm_ok = "・ Normalizationが適用されていません。\n" + norm_ok;
+                }
                 // for IMRT is not implemented
-                if (IrradiationTechnique == Technique.IMRT)
+                else if (IrradiationTechnique == Technique.IMRT)
                 {
                     is_error = false;
                 }
