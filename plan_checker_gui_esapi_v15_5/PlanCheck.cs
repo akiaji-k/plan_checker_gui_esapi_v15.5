@@ -747,17 +747,8 @@ namespace plan_checker_gui_esapi_v15_5
                 string norm = context.ExternalPlanSetup.PlanNormalizationMethod;
                 string norm_ok = string.Format("\t{0}\n", norm);
 
-                //                if (context.ExternalPlanSetup.PlanNormalizationMethod== "No plan normalization")
-                if ((norm.Contains("100% in Reference Point") == false)
-                        && (norm.Contains("100% in Primary Reference Point") == false)
-                        && (norm.Contains("100% in Isocenter of Field") == false)
-                    )
-                {
-                    is_error = true;
-                    norm_ok = "・ Normalizationが不適切な可能性があります。\n" + norm_ok;
-                }
                 // for IMRT is not implemented
-                else if (IrradiationTechnique == Technique.IMRT)
+                if (IrradiationTechnique == Technique.IMRT)
                 {
                     is_error = false;
                 }
@@ -765,6 +756,14 @@ namespace plan_checker_gui_esapi_v15_5
                 else if (IrradiationTechnique == Technique.Electron) 
                 { 
                     is_error = false;
+                }
+                else if ((norm.Contains("100% in Reference Point") == false)
+                        && (norm.Contains("100% in Primary Reference Point") == false)
+                        && (norm.Contains("100% in Isocenter of Field") == false)
+                    )
+                {
+                    is_error = true;
+                    norm_ok = "・ Normalizationが不適切な可能性があります。\n" + norm_ok;
                 }
                 else {
                     var dose_per_fraction = context.ExternalPlanSetup.DosePerFraction;
